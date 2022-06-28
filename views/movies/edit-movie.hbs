@@ -13,15 +13,15 @@
             <label class="form-label"> Plot
                 <input type="text" name="plot" class="form-control" value="{{movies.plot}}" />
             </label>
-
-            <label class="form-label"> Plot
-                <input type="text" name="plot" class="form-control" value="{{movies.cast}}" />
-            </label>
-
+            {{!-- <p>{{movies.cast}}</p> --}}
             <label class="form-label"> Cast
                 <select multiple class="form-control orm-select-lg " name="cast">
-                    {{#each celebrities}}
-                    <option value="{{_id}}">{{name}}</option>
+
+                    {{#each notInCast}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                    {{#each movies.cast}}
+                    <option value="{{this.name}}" selected>{{this.name}}</option>
                     {{/each}}
                 </select>
             </label>
