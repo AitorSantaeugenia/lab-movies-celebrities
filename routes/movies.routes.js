@@ -77,7 +77,6 @@ router.get("/movies/details/:id", (req, res) => {
 // --------------------------------------------
 // DELETE movies - one
 router.post("/movies/:id/delete", (req, res, next) => {
-  // Iteration #5: Delete the drone
   const { id } = req.params;
 
   Movie.findByIdAndDelete(id)
@@ -93,7 +92,6 @@ router.post("/movies/:id/delete", (req, res, next) => {
 // UPDATE movies - GET route to display the form to update a specific movie
 // ------------------------------------------------------
 router.get("/movies/:id/edit", (req, res, next) => {
-  // Iteration #4: Update the drone
   const { id } = req.params;
 
   Movie.findById(id)
@@ -124,7 +122,6 @@ router.get("/movies/:id/edit", (req, res, next) => {
 router.post("/movies/:id/edit", (req, res) => {
   const { id } = req.params;
   //   console.log("AITOR", id);
-  // Iteration #4: Update the drone
   const { title, genre, plot, cast: castNames } = req.body;
   Celebrity.find({ name: { $in: castNames } })
     .then((responseCast) => {
